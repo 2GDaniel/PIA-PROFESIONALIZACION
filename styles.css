@@ -1,0 +1,251 @@
+:root {
+  --gris-fuerte: #2b2b2b;
+  --gris-medio: #3b3b3b;
+  --amarillo: #ffd400;
+  --amarillo-oscuro: #e6c200;
+  --blanco: #ffffff;
+  --fondo: #f4f4f6;
+  --fondo-imagen: #fff7d6; /* color suave para contraste detrás de imágenes negras */
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: var(--fondo);
+  color: #222;
+}
+
+/* QUIENES SOMOS */
+.quienes-somos {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.quienes-somos h1{
+  font-size: 2.4rem;
+  text-align: center;
+  font-family: "Stack Sans Headline", sans-serif;
+  color: var(--amarillo-oscuro);
+  margin: 0 0 12px 0;
+}
+
+.quienes-somos p{
+  text-align: center;
+  font-size: 1.05rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #333;
+}
+
+/* ==== HEADER ==== */
+.site-header {
+  background: linear-gradient(180deg, var(--amarillo-oscuro), var(--fondo));
+  color: var(--blanco);
+  text-align: center;
+  padding: 52px 20px
+}
+
+.logo {
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--blanco);
+}
+
+.logo span {
+  color: var(--blanco);
+  background-color: var(--amarillo);
+  padding: .4rem;
+  margin: .2rem;
+  border-radius: .3rem;
+}
+
+.subtitle {
+  font-family: "Stack Sans Headline", sans-serif;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color:var(--blanco);
+}
+
+/* ==== CONTENEDOR ==== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==== GRID DE SERVICIOS ==== */
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  padding: 44px 0 80px;
+}
+
+/* Responsivo */
+@media (max-width:980px){
+  .servicios-grid{ grid-template-columns: repeat(2, 1fr); padding:36px 0 60px; }
+}
+@media (max-width:640px){
+  .servicios-grid{ grid-template-columns: 1fr; padding:28px 0 40px; }
+}
+
+/* ============ Tarjeta del servicio ============ */
+.servicio{
+  height: 400px;
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+  background: linear-gradient(180deg, var(--amarillo), var(--amarillo-oscuro));
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+/* efecto elevación */
+.servicio:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.32);
+}
+
+/* Card interior (estructura) */
+.card{
+  width:100%;
+  height:100%;
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:10px;
+  position:relative;
+}
+
+/* Imagen de la tarjeta (arriba) */
+.card-img {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:140px;
+  background: var(--fondo-imagen);
+  border-radius:10px;
+  padding:12px;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+  box-shadow: 0 4px 10px rgba(213, 11, 11, 0.08) inset;
+}
+
+.card-img img{
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: 100px;
+  object-fit: contain;
+  filter: none;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Título */
+.card h2{
+  margin: 6px 0 0 0;
+  color: var(--blanco);
+  font-size: 1.02rem;
+  line-height:1.2;
+}
+
+/* Parte visible (etiqueta + botón) */
+.card-front{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:6px;
+}
+
+.card-tag{
+  color: var(--blanco);
+  font-size:0.9rem;
+}
+
+/* Hover: el panel de info se superpone */
+.card-hover{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  top:0;
+  padding:28px;
+  background: linear-gradient(0deg, rgba(43,43,43,0.96), rgba(43,43,43,0.86));
+  color: var(--blanco);
+  transform: translateY(100%);
+  opacity:0;
+  visibility:hidden;
+  transition: transform 0.32s cubic-bezier(.2,.9,.2,1), opacity .32s, visibility .32s;
+  overflow:auto;
+}
+
+/* Mostrar hover al pasar la tarjeta */
+.servicio:hover .card-hover{
+  transform: translateY(0%);
+  opacity:1;
+  visibility:visible;
+}
+
+/* Ocultar imagen cuando aparece el hover */
+.servicio:hover .card-img{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+}
+
+/* Contenido dentro del hover */
+.card-hover .lead,
+.card-hover p{
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  line-height:1.45;
+  color: #f2f2f2;
+}
+
+.card-hover ul{
+  margin: 0 0 12px 18px;
+  padding: 0;
+  color: #eee;
+  font-size: 0.92rem;
+  line-height:1.5;
+}
+
+/* Botones */
+.btn-cotizar{
+  display:inline-block;
+  background:var(--amarillo);
+  color:var(--gris-fuerte);
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:8px;
+  font-weight:700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition: transform .18s ease, background .18s ease;
+}
+
+.btn-cotizar:hover{ transform: translateY(-3px); background: var(--amarillo-oscuro); }
+
+/* Botón alternativo dentro del hover (contraste) */
+.btn-cotizar-ghost{
+  background:transparent;
+  color: var(--amarillo);
+  border:2px solid rgba(255,212,0,0.18);
+  padding:8px 14px;
+  margin-top:8px;
+  display:inline-block;
+}
+
+/* FOOTER */
+.site-footer{
+  background: linear-gradient(180deg, var(--amarillo), var(--amarillo-oscuro));
+  color: #ddd;
+  text-align:center;
+  padding:18px 0 28px;
+}
+.site-footer small{ font-size:0.9rem; color:#e6e6e6; }

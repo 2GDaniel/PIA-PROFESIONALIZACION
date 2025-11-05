@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cotizar Servicio — SoluXML</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap" rel="stylesheet">
+  <style>
+    main {
+      max-width: 600px;
+      margin: 80px auto;
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2b2b2b;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background: var(--amarillo);
+      color: var(--gris-fuerte);
+      border: none;
+      font-weight: bold;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--amarillo-oscuro);
+    }
+
+    .volver {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: var(--amarillo);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .volver:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <div class="logo">Solu<span>XML</span></div>
+      <p class="subtitle">Soluciones automatizadas en administración y contabilidad con XML</p>
+    </div>
+  </header>
+
+  <main>
+    <h1>Solicita tu Cotización</h1>
+    <form>
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" placeholder="Ej. Alejandra Espinoza" required>
+
+      <label for="empresa">Empresa</label>
+      <input type="text" id="empresa" placeholder="Ej. Grupo YGA">
+
+      <label for="correo">Correo electrónico</label>
+      <input type="email" id="correo" placeholder="abc@empresa.com" required>
+
+      <label for="servicio">Servicio de interés</label>
+      <select id="servicio" required>
+        <option value="">Selecciona una opción</option>
+        <option>Validación y Conciliación Automática de Facturas</option>
+        <option>Clasificación Inteligente y Asignación Contable (Mapping)</option>
+        <option>Analítica de Compras e Impacto en el Capital de Trabajo</option>
+      </select>
+
+      <label for="mensaje">Mensaje adicional</label>
+      <textarea id="mensaje" placeholder="Describe tus necesidades o comentarios..."></textarea>
+
+      <button type="submit">Enviar Cotiza
